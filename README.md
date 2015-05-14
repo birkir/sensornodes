@@ -1,13 +1,24 @@
 Sensor nodes
 ============
 
-The server is hosted on Raspberry Pi with an ultra cheap 2.4Ghz transceiver hooked-up. It captures sensor readings and also act's as an relay server for things the nodes need (like access control).
+**The PROBLEM:** Problem with building cheap sensor nodes are their range and battery drain. By using each node to forward a package to the master node, (or any other node), the voltage can be scaled down so the antennas wont have the same range.
 
-The sensor nodes are atmega328 based microcontrollers that runs on batteries and have the same transceiver. They ping the server with sensor readings at given interval. They can also been given commands via RF link to set config or open doors etc.
+<img src="http://i.imgur.com/c1UgW4c.jpg">
+
+The **server** is hosted on Raspberry Pi with an ultra cheap 2.4Ghz transceiver hooked-up. It captures sensor readings and also act's as an relay server for things the nodes need (like access control).
+
+The **client** sensor nodes are atmega328 based microcontrollers that runs on batteries and have the same transceiver. They ping the server with sensor readings at given interval. They can also been given commands via RF link to set config or open doors etc.
+
+Why? Because it's cheap.
+* [$1,01 - Arduino ATmega328 3.3V](http://www.aliexpress.com/item/Free-Shipping-5PCS-LOT-Pro-Mini-Atmega328-3-3v-8MHz-For-Arduino-Compatible-nano-uno/1972594178.html)
+* [$0,93 - nRF24L01](http://www.aliexpress.com/item/4pcs-NRF24L01-2-4GHz-Antenna-Wireless-Transceiver-Module-for-Arduino-New/1947680205.html)
+* [$0,60 - Sensor](http://www.aliexpress.com/item/37-IN-1-BOX-SENSOR-KITS-FOR-ARDUINO-HIGH-QUALITY-FREE-SHIPPING-Works-with-Official-Arduino/1725211643.html)
+
+So a single sensor node for $2,54 that can report measurements. Add a battery pack and more sensors, and yo're still under $10 for each node. You can get the raspberry pi for about 30-40 bucks to act as a server, but any arduino hooked to a computer will do (as well as any other microcontroller).
 
 TODO: a lot...
 
-**Current output**
+**Current server output**
 ```
 ================ SPI Configuration ================
 CSN Pin          = CE0 (PI Hardware Driven)
